@@ -26,13 +26,13 @@ def find_combinations_summing_to_target(numbers, target):
 st.title("查找数字加和组合")
 
 # Get the input from the user
-numbers = st.text_input("输入一组数字，用逗号','分隔")
+numbers = st.text_input("输入一组数字，用逗号','或者换行符'\t'分隔")
 target = st.number_input("输入目标数字", format="%0.5f")
 
 click = st.columns([2, 1, 2])[1].button('计算')
 if click:
     # Convert the input into a list of integers
-    numbers = [float(n.strip()) for n in numbers.replace('，', ',').split(",")]
+    numbers = [float(n.strip()) for n in numbers.replace('，', ' ').replace('\t', ' ').replace('"', '').replace("'", '').split()]
 
     # Find the combinations that sum to the target
     combinations = find_combinations_summing_to_target(numbers, target)
