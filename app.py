@@ -32,7 +32,7 @@ target = st.number_input("输入目标数字", format="%0.5f")
 click = st.columns([2, 1, 2])[1].button('计算')
 if click:
     # Convert the input into a list of integers
-    numbers = [float(n.strip()) for n in numbers.replace('，', ' ').replace('\t', ' ').replace('"', '').replace("'", '').split()]
+    numbers = [float(n.strip()) for n in numbers.replace('，', ' ').replace(',', ' ').replace('\t', ' ').replace('"', '').replace("'", '').split()]
 
     # Find the combinations that sum to the target
     combinations = find_combinations_summing_to_target(numbers, target)
